@@ -1,0 +1,7 @@
+bin
+obj
+*.txt
+.vscode
+.vs
+.fake
+.ionide
