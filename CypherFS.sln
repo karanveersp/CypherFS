@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AESLib", "AESLib\AESLib.csp
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CypherCLI.Fs", "CypherCLI.Fs\CypherCLI.Fs.fsproj", "{73F910C1-409A-4FE8-9543-0DAC0E3C7E27}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AESLibTests", "AESLibTests\AESLibTests.csproj", "{23A176F3-BB02-4B32-A552-D40EF7A4967E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{73F910C1-409A-4FE8-9543-0DAC0E3C7E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73F910C1-409A-4FE8-9543-0DAC0E3C7E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73F910C1-409A-4FE8-9543-0DAC0E3C7E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23A176F3-BB02-4B32-A552-D40EF7A4967E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23A176F3-BB02-4B32-A552-D40EF7A4967E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23A176F3-BB02-4B32-A552-D40EF7A4967E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23A176F3-BB02-4B32-A552-D40EF7A4967E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
