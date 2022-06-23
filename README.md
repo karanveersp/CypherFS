@@ -9,17 +9,9 @@ Use it to encrypt any text data you want to store, or share securely.
 
 ## Solution Projects
 
-### AESLib 
-
-This class library project contains a class with static functions that wrap an implementation of the AES encryption algorithm.
-
-### AESLibTests
-
-Unit test project for AESLib.
-
 ### CypherCLI.Fs
 
-The main application implemented as an F# CLI project.
+An F# CLI project.
 
 
 [//]: # (## Encryption)
