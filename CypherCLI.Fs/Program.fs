@@ -4,19 +4,22 @@ open CypherCLI.Fs.Model
 
 [<EntryPoint>]
 let main args =
-    let appDataDir = if Array.isEmpty args then Util.GetAppDataDir()
-                     else args.[0]
+    let appDataDir =
+        if Array.isEmpty args then
+            Util.GetAppDataDir()
+        else
+            args.[0]
+
+    Console.WriteLine("Ciphertext folder is: " + appDataDir)
     let mutable finished = false
     let mutable itemsMap = Util.MapFromFiles(appDataDir)
-//    Console.Clear()
 
     while not finished do
         if itemsMap.IsEmpty then
             // prompt for creating new item
             printfn "No cypher files exist."
 
-            let createNewItem =
-                Util.YesNoPrompt "Create a new entry?" false
+            let createNewItem = Util.YesNoPrompt "Create a new entry?" false
 
             if createNewItem then
                 itemsMap <- Util.CreateHandler appDataDir itemsMap
