@@ -8,19 +8,16 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Model.fs"/>
-        <Compile Include="Util.fs"/>
-        <Compile Include="Program.fs"/>
+        <Compile Include="Model.fs" />
+        <Compile Include="Util.fs" />
+        <Compile Include="Program.fs" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AESLib\AESLib.csproj"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="LanguageExt.Core" Version="4.0.3"/>
-        <PackageReference Include="LanguageExt.FSharp" Version="4.0.3"/>
-        <PackageReference Include="Sharprompt" Version="2.4.0"/>
+        <PackageReference Include="FsUtilsLibByKV" Version="1.1.0" />
+        <PackageReference Include="LanguageExt.Core" Version="4.0.3" />
+        <PackageReference Include="LanguageExt.FSharp" Version="4.0.3" />
+        <PackageReference Include="Sharprompt" Version="2.4.0" />
     </ItemGroup>
 
 </Project>

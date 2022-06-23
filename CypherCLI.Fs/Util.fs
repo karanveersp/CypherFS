@@ -1,13 +1,12 @@
 module CypherCLI.Fs.Util
 
 open System.IO
-open AESLib
 open Microsoft.FSharp.Collections
 open Sharprompt
 open System
 
-
 open CypherCLI.Fs.Model
+open Utils.Fs.Crypto
 
 
 let ItemFromFile (path: string) : Item =
@@ -27,26 +26,24 @@ let MapFromFiles (appDataDir: string) : Map<string, Item> =
 
 let UnlockItems (key: string) (itemMap: Map<string, Item>) : Map<string, Item> =
     itemMap.Values
-    |> Seq.choose
-        (fun item ->
-            let plaintext =
-                LanguageExt.FSharp.ToFSharp(AES.Decrypt(item.Content, key))
+    |> Seq.choose (fun item ->
+        let plaintext = AES.DecryptOption item.Content key
 
-            match plaintext with
-            | Some v ->
-                Some(
-                    item.Name,
-                    { Name = item.Name
-                      Path = item.Path
-                      Content = v
-                      Type = Plain }
-                )
-            | None -> None)
+        match plaintext with
+        | Some v ->
+            Some(
+                item.Name,
+                { Name = item.Name
+                  Path = item.Path
+                  Content = v
+                  Type = Plain }
+            )
+        | None -> None)
     |> Map.ofSeq
 
 let CreateItem (appDataDir: string) (key: string) (name: string) (value: string) : Item =
     let cypher =
-        match LanguageExt.FSharp.ToFSharp(AES.Encrypt(value, key)) with
+        match AES.EncryptOption value key with
         | Some v -> v
         | None -> ""
 
@@ -136,8 +133,7 @@ let RevealHandler (itemsMap: Map<string, Item>) =
     else
         let entries = revealedMap.Keys
 
-        let selectedItem =
-            SelectionPrompt "Select an item to reveal" entries
+        let selectedItem = SelectionPrompt "Select an item to reveal" entries
 
         printfn $"\n{revealedMap.[selectedItem].Content}\n"
 
@@ -147,14 +143,12 @@ let UpdateHandler (appDataDir: string) (itemsMap: Map<string, Item>) =
     let key = KeyPrompt()
     let entries = itemsMap.Keys
 
-    let selectedItem =
-        SelectionPrompt "Select an item to update" entries
+    let selectedItem = SelectionPrompt "Select an item to update" entries
 
     printfn "Enter your content (enter --done to submit):"
     let content = GetMultilineInput()
 
-    let newItem =
-        CreateItem appDataDir key selectedItem content
+    let newItem = CreateItem appDataDir key selectedItem content
 
     Map.add selectedItem newItem itemsMap
 
@@ -168,8 +162,7 @@ let DeleteHandler (itemsMap: Map<string, Item>) =
     else
         let entries = revealedMap.Keys
 
-        let selectedItem =
-            SelectionPrompt "Select an item to delete" entries
+        let selectedItem = SelectionPrompt "Select an item to delete" entries
 
         let confirm =
             YesNoPrompt $"Are you sure you want to delete entry ({selectedItem})?" false
