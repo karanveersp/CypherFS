@@ -1,14 +1,28 @@
+# CypherFS
+
 ![cypherfs logo](./images/steel_logo.PNG)
 
-A dotnet CLI password management app.
+A CLI password manager.
 
-Use it to encrypt any text data you want to store, or share securely.
+Use it to encrypt text you want to keep, or share securely.
 
 ![cypher fs demo](./images/cypherfs_demo.gif)
 
+## Installation
 
-## Solution Projects
+Download the `.exe` from the _Releases_ section.
 
-### CypherCLI.Fs
+## Contributing
 
-An F# CLI project.
+Pull requests are welcome. For major changes, please open an issue first to
+discuss what you would like to change.
+
+### Todo
+
+- Add proper cross-platform support to run on Mac and Linux. Currently only runs
+  on Windows.
+- Add unit tests project.
+
+## License
+
+[GPLv3](LICENSE)
