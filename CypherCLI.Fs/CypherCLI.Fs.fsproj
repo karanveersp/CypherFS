@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net6</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <WarnOn>3390;$(WarnOn)</WarnOn>
         <AssemblyName>cypherfs</AssemblyName>
     </PropertyGroup>
@@ -14,10 +14,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FsUtilsLibByKV" Version="1.1.0" />
         <PackageReference Include="LanguageExt.Core" Version="4.0.3" />
         <PackageReference Include="LanguageExt.FSharp" Version="4.0.3" />
         <PackageReference Include="Sharprompt" Version="2.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CypherCLI.Lib\CypherCLI.Lib.fsproj" />
     </ItemGroup>
 
 </Project>

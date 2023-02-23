@@ -26,21 +26,3 @@ type Item =
       Name: string
       Content: string
       Type: ItemType }
-
-//   [<CLIMutable>]
-//    type Item =
-//        {
-//            Id: int
-//            Name: string
-//            Value: string
-//        }
-//
-//    type VaultStatus = Unlocked | Locked
-//
-//   [<CLIMutable>]
-//    type Vault =
-//        {
-//            Id: int
-//            Name: string
-//            Items: Item list
-//        }

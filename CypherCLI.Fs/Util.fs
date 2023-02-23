@@ -6,8 +6,7 @@ open Sharprompt
 open System
 
 open CypherCLI.Fs.Model
-open Utils.Fs.Crypto
-
+open CypherCLI.Lib.Crypto
 
 let ItemFromFile (path: string) : Item =
     let cypher = File.ReadAllText(path)
